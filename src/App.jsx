@@ -1,46 +1,27 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import Body from "./components/Body";
+import { Login } from "./components/Login";
+import Profile from "./components/Profile";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Feed from "./components/Feed";
 
 function App() {
   return (
     <>
-      <div class="navbar bg-base-300 shadow-sm">
-        <div class="flex-1">
-          <a class="btn btn-ghost text-xl">DevTinder</a>
-        </div>
-        <div class="flex gap-2">
-          <div class="dropdown dropdown-end mx-5">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost btn-circle avatar"
-            >
-              <div class="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
-              </div>
-            </div>
-            <ul
-              tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a class="justify-between">
-                  Profile
-                  <span class="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Provider store={appStore}>
+        <BrowserRouter basename="/">
+          <Routes>
+            <Route path="/" element={<Body />}>
+              <Route path="/" element={<Feed />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Provider>
     </>
   );
 }
