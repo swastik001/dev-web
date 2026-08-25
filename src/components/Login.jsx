@@ -8,6 +8,8 @@ import { BASE_URL } from "../utils/constants";
 export const Login = () => {
   const [email, setEmailId] = useState("hulk@gmail.com");
   const [password, setPassword] = useState("Hulk@123");
+  const [error, setError] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   async function handleLogin() {
@@ -22,11 +24,11 @@ export const Login = () => {
           withCredentials: true, ///whenever making api calls , need to do this to avoid cors error
         },
       );
-      console.log(res.data.user);
+
       dispatch(addUser(res.data.user));
       return navigate("/");
     } catch (e) {
-      console.log(e.message);
+      setError(e.response?.data?.message || "Login failed");
     }
   }
   return (
@@ -56,7 +58,8 @@ export const Login = () => {
               />
             </fieldset>
           </div>
-          <div className="card-actions justify-center">
+          <div className="card-actions flex flex-col items-center justify-center  ">
+            {error && <p className="text-red-500">{error}</p>}
             <button
               className="btn btn-primary btn-block w-40"
               onClick={handleLogin}
