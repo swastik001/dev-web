@@ -33,7 +33,7 @@ const Body = () => {
     <div>
       <Navbar />
       <Outlet /> {/* any children route of body will render here  */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
