@@ -28,9 +28,14 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
-  return feed?.map((user) => {
-    return <UserCard key={user?._id} user={user} />;
-  });
+  return (
+    <div className="flex justify-center">
+      {/* {feed?.map((user) => {
+        return <UserCard key={user?._id} user={user[0]} />;
+      })} */}
+      {feed && <UserCard user={feed?.[0]} />}
+    </div>
+  );
 };
 
 export default Feed;
