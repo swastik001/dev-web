@@ -1,6 +1,6 @@
 import React from "react";
 
-const ConnectionsCard = ({ connection }) => {
+const RequestCard = ({ connection }) => {
   const { firstName, lastName, photoUrl, age, gender, about, skills } =
     connection;
   return (
@@ -11,15 +11,16 @@ const ConnectionsCard = ({ connection }) => {
       <div className="card-body">
         <h2 className="card-title">{firstName + " " + lastName}</h2>
         <p>{about}</p>
-        <p>{age + ", " + gender != undefined ? gender : ""}</p>
+        <p>{age}</p>
+        <p>{gender && gender}</p>
         <p>{skills?.length > 0 ? skills.join(", ") : ""}</p>
-        {/* <div className="card-actions justify-end">
-          <button className="btn btn-primary">Watch</button>
-          <button className="btn btn-primary">Watch</button>
-        </div> */}
+        <div className="card-actions justify-end">
+          <button className="btn btn-secondary">Reject</button>
+          <button className="btn btn-primary">Accept</button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ConnectionsCard;
+export default RequestCard;

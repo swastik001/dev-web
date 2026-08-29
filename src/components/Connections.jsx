@@ -13,7 +13,6 @@ const Connections = () => {
       const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
       });
-      console.log("here", res.data.connections);
       dispatch(addConnections(res?.data?.connections));
     } catch (e) {
       console.log(e.message);
