@@ -4,7 +4,7 @@ const ConnectionsCard = ({ connection }) => {
   const { firstName, lastName, photoUrl, age, gender, about, skills } =
     connection;
   return (
-    <div className="card card-side bg-base-300 shadow-sm h-60">
+    <div className="card card-side bg-base-300 shadow-sm ">
       <figure>
         <img src={photoUrl} className="w-75 " alt="photo" />
       </figure>

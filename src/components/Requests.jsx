@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../utils/constants";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,17 +24,14 @@ const Requests = () => {
     getRequests();
   }, []);
   if (!requests) return;
-  if (requests.length == 0) return <h2>No requests found</h2>;
+  if (requests.length == 0) return <h2 className="flex">No requests found</h2>;
   return (
     <div className="flex flex-col items-center my-10 mx-auto">
       <h2 className="text-bold text-3xl">Requests</h2>
       {requests?.map((each) => {
-        const { firstName, lastName, photoUrl, age, gender, about } =
-          each.fromUserId;
-        console.log(each);
         return (
           <div key={each._id} className="my-10 w-2/3">
-            <RequestCard connection={each.fromUserId} />
+            <RequestCard requests={each.fromUserId} requestID={each._id} />
           </div>
         );
       })}
