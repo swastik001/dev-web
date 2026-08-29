@@ -28,6 +28,10 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
+  if (!feed || feed.length === 0) {
+    return <h3>No new users found</h3>;
+  }
+
   return (
     <div className="flex justify-center">
       {/* {feed?.map((user) => {

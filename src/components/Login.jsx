@@ -31,6 +31,7 @@ export const Login = () => {
       setError(e.response?.data?.message || "Login failed");
     }
   }
+
   return (
     <div className="flex justify-center my-10">
       <div className="card w-96 bg-base-300 shadow-sm">
