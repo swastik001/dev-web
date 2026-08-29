@@ -82,14 +82,22 @@ const EditProfile = ({ user }) => {
                     }}
                   />
                   <legend className="fieldset-legend ">About </legend>
-                  <input
+                  {/* <input
                     type="text"
                     className="input"
                     value={about}
                     onChange={(e) => {
                       setAbout(e.target.value);
                     }}
+                  /> */}
+                  <textarea
+                    className="textarea"
+                    value={about}
+                    onChange={(e) => {
+                      setAbout(e.target.value);
+                    }}
                   />
+
                   <legend className="fieldset-legend ">Skiils </legend>
                   <input
                     type="text"
