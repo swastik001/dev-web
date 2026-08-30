@@ -19,7 +19,7 @@ const Feed = () => {
           withCredentials: true,
         },
       );
-      console.log(res.data.users);
+
       dispatch(addFeed(res?.data?.users));
     } catch (e) {
       console.log(e);

@@ -23,7 +23,6 @@ const Body = () => {
       if (e.status === 401) {
         navigate("/login");
       }
-      console.log(e.status);
     }
   };
   useEffect(() => {
